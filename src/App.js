@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
-import GitHubAPI from './Chapter6/GitHubAPI';
-import GitHubAPIWInput from './Chapter6/GitHubWInput';
-import Trivia from './Chapter6/Trivia';
-import Userlist from './Chapter6/Userlist';
+import TodoGrid from './Chapter7/TodoGrid';
+
+
+
 function App() {
   return (
     <>
-      <Userlist/>
-      <Trivia/>
-      <GitHubAPI/>
-      <GitHubAPIWInput/>
+      <TodoGrid/>
     </>
   )
 }
