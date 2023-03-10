@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import TodoGrid from './Chapter7/TodoGrid';
-
-
+import TodoGridButton from './Chapter7/TodoGridButton';
 
 function App() {
   return (
     <>
-      <TodoGrid/>
+      <TodoGridButton/>
     </>
   )
 }
