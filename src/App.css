@@ -1,0 +1,11 @@
+.cont-center{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+h1 {
+    color: blue;
+}
+p {
+    size: 20px;
+}
