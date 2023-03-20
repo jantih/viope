@@ -1,8 +1,9 @@
 // 9.1 Use MUI Tooltip component to show 'Delete todo' tooltip in your todo list app Delete button. See the image below.
-
+// 9.2 Add save icon to the Add button of your todo list app. See the image below. You can find the following example from the MUI documentation (Buttons with icon and label).
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 import Button from '@mui/material/Button';
 import { Tooltip, TextField, Stack, AppBar, Toolbar, Typography } from '@mui/material';
 
@@ -53,7 +54,7 @@ export default function Todolist() {
           onChange={inputChanged}
         />
         <Button
-          variant="outlined"
+          variant="outlined" startIcon={<SaveIcon />}
           onClick={addTodo}>
           Add
         </Button>
