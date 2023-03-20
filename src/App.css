@@ -1,11 +1,15 @@
-.cont-center{
+.App{
 display: flex;
 flex-direction: column;
 align-items: center;
 }
-h1 {
-    color: blue;
+nav {
+    margin-bottom: 10px;
 }
-p {
-    size: 20px;
+.todo table { 
+    width: 100%;
+}
+.todo table tr {
+    display: flex;
+    justify-content: space-between;
 }
