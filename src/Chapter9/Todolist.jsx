@@ -1,27 +1,33 @@
 // 9.1 Use MUI Tooltip component to show 'Delete todo' tooltip in your todo list app Delete button. See the image below.
 // 9.2 Add save icon to the Add button of your todo list app. See the image below. You can find the following example from the MUI documentation (Buttons with icon and label).
+// 9.3 Use MUI DataGrid component instead of HTML table in your todolist app from the previous exercise (see the screenshot at the end).
+
 import React, { useState } from 'react';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SaveIcon from '@mui/icons-material/Save';
 import Button from '@mui/material/Button';
-import { Tooltip, TextField, Stack, AppBar, Toolbar, Typography } from '@mui/material';
+import { TextField, Stack, AppBar, Toolbar, Typography } from '@mui/material';
+import { DataGrid } from '@mui/x-data-grid';
+
 
 export default function Todolist() {
-  const [todo, setTodo] = useState({ description: '', date: '' });
+  const [todo, setTodo] = useState({ id: '', description: '', date: ''});
   const [todos, setTodos] = useState([]);
 
   const inputChanged = (event) => {
-    setTodo({ ...todo, [event.target.name]: event.target.value });
+    setTodo({ ...todo, id: new Date().toString(), [event.target.name]: event.target.value });
   }
-
   const addTodo = () => {
     setTodos([...todos, todo]);
   }
-
-  const deleteTodo = (row) => {
-    setTodos(todos.filter((todo, index) => index !== row));
-  }
+  const columns = [
+    {field: 'description', headerName: 'Description', flex: 1},
+    {field: 'date', headerName: 'Date', minWidth: 20},
+  ];
+  const rows = todos.map((row) => ({
+    id: row.id,
+    description: row.description,
+    date: row.date,
+  }));
 
   return (
     <>
@@ -59,24 +65,9 @@ export default function Todolist() {
           Add
         </Button>
       </Stack>
-      <table>
-        <tbody>
-          {
-            todos.map((todo, index) =>
-              <tr key={index}>
-                <td>{todo.description}</td>
-                <td>{todo.date}</td>
-                <td>
-                  <Tooltip title="Delete todo">
-                    <IconButton size="small" color="error" onClick={() => deleteTodo(index)}>
-                      <DeleteIcon />
-                    </IconButton>
-                  </Tooltip>
-                </td>
-              </tr>)
-          }
-        </tbody>
-      </table>
+      <div style={{height: 400, width: '100%'}}>
+      <DataGrid rows={rows} columns={columns} getRowId={(rows) => rows.id}/>
+      </div>
     </div>
     </>
   );
