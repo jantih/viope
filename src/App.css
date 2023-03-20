@@ -3,13 +3,19 @@ display: flex;
 flex-direction: column;
 align-items: center;
 }
+body {
+    padding: 0;
+    margin: 0;
+}
 nav {
     margin-bottom: 10px;
 }
-.todo table { 
-    width: 100%;
-}
-.todo table tr {
+.todofields {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+table {
+    width: 100%;
+    margin: auto;
+    padding-top: 20px;
 }
